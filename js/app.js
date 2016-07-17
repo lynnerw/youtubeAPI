@@ -26,7 +26,7 @@
   function showResults(results) {
     var displayResult = "";
     $.each(results, function(index,value) {
-        displayResult += '<p>' + '<a href="https://www.youtube.com/watch?v=' + value.id + '">' + value.snippet.title + '</a>' + '</p>' + '<img src=' + value.snippet.thumbnails.default.url + '>';
+        displayResult += '<p>' + '<a target="_blank" href="https://www.youtube.com/watch?v=' + value.id + '">' + value.snippet.title + '</a>' + '</p>' + '<img src=' + value.snippet.thumbnails.default.url + '>';
     });
     $('#search-results').html(displayResult);
 
