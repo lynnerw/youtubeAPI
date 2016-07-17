@@ -26,7 +26,13 @@
   function showResults(results) {
     var displayResult = "";
     $.each(results, function(index,value) {
-        displayResult += '<p>' + '<a target="_blank" href="https://www.youtube.com/watch?v=' + value.id + '">' + value.snippet.title + '</a>' + '</p>' + '<img src=' + value.snippet.thumbnails.default.url + '>';
+        var url;
+        if (value.id.channelId) {
+          url = "https://www.youtube.com/channel/" + value.id.channelId;
+        } else {
+          url = "https://www.youtube.com/watch?v=" + value.id.videoId;
+        }
+        displayResult += '<p>' + '<a target="_blank" href=' + url + '>' + value.snippet.title + '</a>' + '</p>' + '<img src=' + value.snippet.thumbnails.default.url + '>';
     });
     $('#search-results').html(displayResult);
 
